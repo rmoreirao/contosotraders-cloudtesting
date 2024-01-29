@@ -216,81 +216,81 @@ resource productimagesstgacc 'Microsoft.Storage/storageAccounts@2022-09-01' = {
   }
 }
 
-//
-// main website / ui
-// new website / ui
-//
+// //
+// // main website / ui
+// // new website / ui
+// //
 
-// storage account (main website)
-resource uistgacc 'Microsoft.Storage/storageAccounts@2022-09-01' = {
-  name: uiStgAccName
-  location: resourceLocation
-  tags: resourceTags
-  sku: {
-    name: 'Standard_LRS'
-  }
-  kind: 'StorageV2'
-  properties: {
-    allowBlobPublicAccess: true
-  }
+// // storage account (main website)
+// resource uistgacc 'Microsoft.Storage/storageAccounts@2022-09-01' = {
+//   name: uiStgAccName
+//   location: resourceLocation
+//   tags: resourceTags
+//   sku: {
+//     name: 'Standard_LRS'
+//   }
+//   kind: 'StorageV2'
+//   properties: {
+//     allowBlobPublicAccess: true
+//   }
 
-  // blob service
-  resource uistgacc_blobsvc 'blobServices' = {
-    name: 'default'
-  }
-}
+//   // blob service
+//   resource uistgacc_blobsvc 'blobServices' = {
+//     name: 'default'
+//   }
+// }
 
-// storage account (new website)
-resource ui2stgacc 'Microsoft.Storage/storageAccounts@2022-05-01' = {
-  name: ui2StgAccName
-  location: resourceLocation
-  tags: resourceTags
-  sku: {
-    name: 'Standard_LRS'
-  }
-  kind: 'StorageV2'
-  properties: {
-    allowBlobPublicAccess: true
-  }
+// // storage account (new website)
+// resource ui2stgacc 'Microsoft.Storage/storageAccounts@2022-05-01' = {
+//   name: ui2StgAccName
+//   location: resourceLocation
+//   tags: resourceTags
+//   sku: {
+//     name: 'Standard_LRS'
+//   }
+//   kind: 'StorageV2'
+//   properties: {
+//     allowBlobPublicAccess: true
+//   }
 
-  // blob service
-  resource ui2stgacc_blobsvc 'blobServices' = {
-    name: 'default'
-  }
-}
+//   // blob service
+//   resource ui2stgacc_blobsvc 'blobServices' = {
+//     name: 'default'
+//   }
+// }
 
 
-//
-// image classifier
-//
+// //
+// // image classifier
+// //
 
-// storage account (main website)
-resource imageclassifierstgacc 'Microsoft.Storage/storageAccounts@2022-09-01' = {
-  name: imageClassifierStgAccName
-  location: resourceLocation
-  tags: resourceTags
-  sku: {
-    name: 'Standard_LRS'
-  }
-  properties: {
-    allowBlobPublicAccess: true
-  }
-  kind: 'StorageV2'
+// // storage account (main website)
+// resource imageclassifierstgacc 'Microsoft.Storage/storageAccounts@2022-09-01' = {
+//   name: imageClassifierStgAccName
+//   location: resourceLocation
+//   tags: resourceTags
+//   sku: {
+//     name: 'Standard_LRS'
+//   }
+//   properties: {
+//     allowBlobPublicAccess: true
+//   }
+//   kind: 'StorageV2'
   
 
-  // blob service
-  resource imageclassifierstgacc_blobsvc 'blobServices' = {
-    name: 'default'
+//   // blob service
+//   resource imageclassifierstgacc_blobsvc 'blobServices' = {
+//     name: 'default'
 
-    // container
-    resource uistgacc_blobsvc_websiteuploadscontainer 'containers' = {
-      name: imageClassifierWebsiteUploadsContainerName
-      properties: {
-        publicAccess: 'Container'
-      }
-    }
-  }
-}
+//     // container
+//     resource uistgacc_blobsvc_websiteuploadscontainer 'containers' = {
+//       name: imageClassifierWebsiteUploadsContainerName
+//       properties: {
+//         publicAccess: 'Container'
+//       }
+//     }
+//   }
+// }
 
 //
 // cdn
